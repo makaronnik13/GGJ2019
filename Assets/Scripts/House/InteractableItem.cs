@@ -7,8 +7,6 @@ public class InteractableItem : MonoBehaviour
 {
 	public UnityEvent OnActivate;
 
-	private bool IsReady = false;
-
     // Update is called once per frame
     void Update()
     {
@@ -17,15 +15,11 @@ public class InteractableItem : MonoBehaviour
 
 	void OnMouseDown()
 	{
-		IsReady = true;
+        FireFlyClickController.Instance.Item = this;
 	}
 
-	void OnCollisionStay2D(Collision2D col)
-	{
-		if (IsReady || col.transform.tag == "Player")
-		{
-			IsReady = false;
-			OnActivate.Invoke();
-		}
-	}
+    public void Activate()
+    {
+        OnActivate.Invoke();
+    }
 }

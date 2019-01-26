@@ -7,6 +7,21 @@ public class FireFlyClickController : MonoBehaviour
     private Vector3 aim = Vector3.zero;
     public float MovementSpeed;
 
+    public InteractableItem Item;
+
+    private static FireFlyClickController _instance;
+    public static FireFlyClickController Instance
+    {
+        get
+        {
+            if (_instance == null)
+            {
+                _instance = FindObjectOfType<FireFlyClickController>();
+            }
+            return _instance;
+        }
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -15,6 +30,7 @@ public class FireFlyClickController : MonoBehaviour
             Vector3 mousePosition = Input.mousePosition;
             mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
             aim = mousePosition;
+            //Item = null;
         }
 
         if (aim!=Vector3.zero)
@@ -25,10 +41,26 @@ public class FireFlyClickController : MonoBehaviour
 
             transform.up =  direction;
 
-            if (Vector2.Distance(aim, transform.position)<0.04f)
+            if (Vector2.Distance(aim, transform.position)<0.1f)
             {
                 aim = Vector3.zero;
             }
         }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        aim = Vector3.zero;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.GetComponent<InteractableItem>() == Item && Item!=null)
+        {
+            Item.Activate();
+            Item = null;
+            aim = Vector3.zero;
+        }
+
     }
 }
