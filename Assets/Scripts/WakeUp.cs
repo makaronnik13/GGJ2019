@@ -27,7 +27,7 @@ public class WakeUp : MonoBehaviour
         {
             _life += v*t;
             Glow.color = Color.Lerp(Glow.color, Color.yellow, _life/10f);
-            Mask.localScale = Vector3.Lerp(20*Vector3.one, 75*Vector3.one, _life);
+            Mask.localScale = Vector3.Lerp(20*Vector3.one, 50*Vector3.one, _life);
             t += Time.deltaTime;
             yield return new WaitForSeconds(Time.deltaTime);
         }
