@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GlobalGameManager : Singleton<GlobalGameManager>
 {
@@ -13,11 +14,16 @@ public class GlobalGameManager : Singleton<GlobalGameManager>
         Glow.Instance.OnDeath += Die;
     }
 
+    public void LoadScene(string sceneName)
+    {
+        SceneManager.LoadScene(sceneName);
+    }
+
     private void Die()
     {
-        Debug.Log("Die");
         Glow.Instance.transform.position = SavePoint.transform.position;
         Glow.Instance.transform.rotation = Quaternion.Euler(Vector3.right);
+        EyesController.Instance.Reborn();
         SavePoint.Zone.SetActive(true);
     }
 
