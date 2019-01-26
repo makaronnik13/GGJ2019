@@ -20,6 +20,6 @@ public class GlowingShit : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        rend.color = Color.Lerp(col, col2,  Mathf.Sin(Time.time*rate+diff));
+        rend.color = Color.Lerp(col, col2,  Mathf.Sin(Time.time*rate+diff)+0.3f);
     }
 }
