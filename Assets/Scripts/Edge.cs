@@ -7,7 +7,7 @@ public class Edge : MonoBehaviour
     public SpriteRenderer WhiteEdge;
     private Color _transparent = new Color(1,1,1,0);
 
-    private float MaxDist = 5;
+    public float MaxDist = 10;
 
     // Update is called once per frame
     void Update()

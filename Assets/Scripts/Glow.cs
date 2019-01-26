@@ -6,7 +6,6 @@ using UnityEngine;
 public class Glow : Singleton<Glow>
 {
     public AnimationCurve FadeOutCurve;
-    public Transform Mask;
     public SpriteRenderer GlowRenderer;
     public Color GlowColor;
     private Color NotGlowColor;
@@ -26,8 +25,7 @@ public class Glow : Singleton<Glow>
         {
             _life = value;
             GlowRenderer.color = Color.Lerp(NotGlowColor, GlowColor, _life);
-            Mask.localScale = Vector3.one * Mathf.Lerp(1f,30f,_life);
-
+           
             if (_life<=0)
             {
                 OnDeath();
@@ -62,7 +60,12 @@ public class Glow : Singleton<Glow>
 
     public void SetDanger(bool v)
     {
-        _inDangerZone = v;
+
+        if (v)
+        {
+            OnDeath();
+        }
+       
     }
 
 }
