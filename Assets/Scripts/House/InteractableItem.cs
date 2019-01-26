@@ -20,7 +20,7 @@ public class InteractableItem : MonoBehaviour
 		IsReady = true;
 	}
 
-	void OnCollisionEnter2D(Collision2D col)
+	void OnCollisionStay2D(Collision2D col)
 	{
 		if (IsReady || col.transform.tag == "Player")
 		{
