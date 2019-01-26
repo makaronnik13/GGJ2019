@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -12,6 +13,23 @@ public class FireflyController : MonoBehaviour
 
     public FlyMode Mode = FlyMode.Calm;
     public float MovementSpeed, RotationSpeed;
+    private float _actualSpeed = 0;
+
+    private void Start()
+    {
+        StartCoroutine(IncreaseSpeed(5f));
+    }
+
+    private IEnumerator IncreaseSpeed(float v)
+    {
+
+        while (v>0)
+        {
+            v -= Time.deltaTime;
+            _actualSpeed = Mathf.Lerp(MovementSpeed, 0,  v/5f);
+            yield return new WaitForSeconds(Time.deltaTime);
+        }
+    }
 
     // Update is called once per frame
     void Update()
@@ -31,7 +49,7 @@ public class FireflyController : MonoBehaviour
             distanceMultiplyer = 1;
         }
 
-        transform.position += Time.deltaTime * MovementSpeed * transform.up * distanceMultiplyer;
+        transform.position += Time.deltaTime * _actualSpeed * transform.up * distanceMultiplyer;
 
         transform.up = Vector2.Lerp(transform.up, direction, Time.deltaTime*RotationSpeed);   
     }

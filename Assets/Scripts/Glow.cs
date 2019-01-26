@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Glow : Singleton<Glow>
+public class Glow : MonoBehaviour
 {
     public AnimationCurve FadeOutCurve;
     public SpriteRenderer GlowRenderer;
@@ -11,6 +11,18 @@ public class Glow : Singleton<Glow>
     private Color NotGlowColor;
     public float CanBeInDanger = 0.3f;
 
+    private static Glow _instance;
+    public static Glow Instance
+    {
+        get
+        {
+            if (_instance == null)
+            {
+                _instance = FindObjectOfType<Glow>();
+            }
+            return _instance;
+        }
+    }
 
     public Action OnDeath = () => { };
 
