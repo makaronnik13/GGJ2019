@@ -11,8 +11,9 @@ public class InteractableItem : MonoBehaviour
 
 	void OnMouseDown()
 	{
-        FireFlyClickController.Instance.Item = this;
-        StartCoroutine(PingItem());
+		OnActivate.Invoke();
+       // FireFlyClickController.Instance.Item = this;
+        //StartCoroutine(PingItem());
 	}
 
     private IEnumerator PingItem()
@@ -24,6 +25,7 @@ public class InteractableItem : MonoBehaviour
             t += Time.deltaTime;
             yield return new WaitForSeconds(Time.deltaTime);
         }
+		Activate();
     }
 
     public void Activate()
