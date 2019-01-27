@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DangerSpase : MonoBehaviour
 {
-
+  
     private void Start()
     {
         GetComponent<Collider2D>().isTrigger = true;
@@ -13,11 +13,9 @@ public class DangerSpase : MonoBehaviour
     
     private void OnTriggerEnter2D (Collider2D other)
     {
-        Glow.Instance.SetDanger(true);
+        GetComponent<AudioSource>().PlayOneShot(GetComponent<AudioSource>().clip);
+        Glow.Instance.TurnOff();
+        GlobalGameManager.Instance.Die();
     }
 
-    private void OnTriggerExit2D(Collider2D other)
-    {
-        Glow.Instance.SetDanger(false);
-    }
 }

@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class WakeUp : MonoBehaviour
 {
+    public Animator Wings;
     public SpriteRenderer Glow;
     public Transform Mask;
     public GameObject Eyes;
@@ -13,7 +14,7 @@ public class WakeUp : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (!standingUp)
+        if (!standingUp && _life<1)
         {
             StartCoroutine(StandUp(0.05f));
         }
@@ -21,6 +22,8 @@ public class WakeUp : MonoBehaviour
 
     private IEnumerator StandUp(float v)
     {
+        Wings.GetComponent<Animator>().SetTrigger("OneShot");
+        GetComponent<AudioSource>().PlayOneShot(GetComponent<AudioSource>().clip);
         standingUp = true;
         float t = 0;
         while (t<0.5)
@@ -34,7 +37,13 @@ public class WakeUp : MonoBehaviour
         if (_life>=1)
         {
             GetComponent<FireflyController>().enabled = true;
-            Eyes.SetActive(true);
+           // Transform parent = Eyes.transform.parent;
+            Eyes.transform.parent.parent.GetComponent<Animator>().SetTrigger("Off");
+            Eyes.transform.SetParent(Eyes.GetComponent<EyesController>().SpawnPoint);
+            Eyes.transform.localPosition = Vector3.zero;
+            Eyes.GetComponent<Animator>().enabled = true;
+            Eyes.GetComponent<EyesController>().enabled = true;
+            Wings.GetComponent<Animator>().SetBool("Fly", true);
         }
         standingUp = false;
     }

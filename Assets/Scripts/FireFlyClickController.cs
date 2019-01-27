@@ -10,6 +10,8 @@ public class FireFlyClickController : MonoBehaviour
     public InteractableItem Item;
 
     private static FireFlyClickController _instance;
+    public float RotationSpeed;
+
     public static FireFlyClickController Instance
     {
         get
@@ -37,11 +39,11 @@ public class FireFlyClickController : MonoBehaviour
         {
             Vector2 direction = new Vector2(aim.x - transform.position.x, aim.y - transform.position.y);
 
-            transform.position += Time.deltaTime * MovementSpeed * transform.up;
+            transform.Translate(Time.deltaTime * MovementSpeed * transform.up);
 
-            transform.up =  direction;
+            transform.up = Vector2.Lerp(transform.up, direction, Time.deltaTime * RotationSpeed);
 
-            if (Vector2.Distance(aim, transform.position)<0.1f)
+            if (Vector2.Distance(aim, transform.position)<0.2f)
             {
                 aim = Vector3.zero;
             }

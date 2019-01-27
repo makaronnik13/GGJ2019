@@ -13,7 +13,19 @@ public class FireflyController : MonoBehaviour
 
     public FlyMode Mode = FlyMode.Calm;
     public float MovementSpeed, RotationSpeed;
+    public AudioClip FlySound;
+    public float volume;
+
     private float _actualSpeed = 0;
+
+    private void OnEnable()
+    {
+        GetComponent<AudioSource>().Stop();
+        GetComponent<AudioSource>().clip = FlySound;
+        GetComponent<AudioSource>().loop = true;
+        GetComponent<AudioSource>().volume = volume;
+        GetComponent<AudioSource>().Play();
+    }
 
     private void Start()
     {

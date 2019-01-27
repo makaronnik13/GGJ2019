@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class GlobalGameManager : MonoBehaviour
 {
+    public AudioClip Chew;
+    
 
     private static GlobalGameManager _instance;
     public static GlobalGameManager Instance
@@ -21,19 +23,8 @@ public class GlobalGameManager : MonoBehaviour
     }
 
 
-    // Start is called before the first frame update
-    void Start()
+    public void Die()
     {
-        Glow.Instance.OnDeath += Die;
-    }
-
-    public void LoadScene(string sceneName)
-    {
-        SceneManager.LoadScene(sceneName);
-    }
-
-    private void Die()
-    {
-        LoadScene(SceneManager.GetActiveScene().name);
+        Fader.Instance.OpenScene(SceneManager.GetActiveScene().name, 0.5f, 3, "", null, Fader.Instance.GetComponent<AudioSource>().clip);
     }
 }

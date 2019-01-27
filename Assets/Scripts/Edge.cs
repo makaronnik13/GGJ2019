@@ -12,6 +12,10 @@ public class Edge : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Glow.Instance == null)
+        {
+            return;
+        }
         float dist = Vector3.Distance(Glow.Instance.transform.position, transform.position);
 
         dist = Mathf.Min(dist, MaxDist) / MaxDist;

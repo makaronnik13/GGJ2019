@@ -5,11 +5,6 @@ using UnityEngine;
 
 public class Glow : MonoBehaviour
 {
-    public AnimationCurve FadeOutCurve;
-    public SpriteRenderer GlowRenderer;
-    public Color GlowColor;
-    private Color NotGlowColor;
-    public float CanBeInDanger = 0.3f;
 
     private static Glow _instance;
     public static Glow Instance
@@ -24,17 +19,12 @@ public class Glow : MonoBehaviour
         }
     }
 
-    public Action OnDeath = () => { };
-
-
-    public void SetDanger(bool v)
+    public void TurnOff()
     {
-
-        if (v)
+        if (GetComponent<AudioSource>().isPlaying)
         {
-            OnDeath();
+            GetComponent<AudioSource>().Stop();
+            GameObject.Destroy(transform.GetChild(0).gameObject);
         }
-       
     }
-
 }
