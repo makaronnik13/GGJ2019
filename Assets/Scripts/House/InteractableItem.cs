@@ -11,7 +11,7 @@ public class InteractableItem : MonoBehaviour
 
 	void OnMouseDown()
 	{
-        FireFlyClickController.Instance.Item = this;
+        //FireFlyClickController.Instance.Item = this;
         StartCoroutine(PingItem());
 	}
 
@@ -24,11 +24,11 @@ public class InteractableItem : MonoBehaviour
             t += Time.deltaTime;
             yield return new WaitForSeconds(Time.deltaTime);
         }
+        Activate();
     }
 
     public void Activate()
     {
-        Debug.Log("Activate");
         OnActivate.Invoke();
     }
 }

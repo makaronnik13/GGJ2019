@@ -16460,6 +16460,11 @@ MonoBehaviour:
   SceneName: Run2
   Title: 
   nextClip: {fileID: 0}
+  onEnter:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!1 &1931685040
 GameObject:
   m_ObjectHideFlags: 0
@@ -18762,6 +18767,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 193.808
       objectReference: {fileID: 0}
+    - target: {fileID: 6285817406383148445, guid: d4d456347abbb904096f00c85b373375,
+        type: 3}
+      propertyPath: Title
+      value: serenity
+      objectReference: {fileID: 0}
+    - target: {fileID: 6285817406383148445, guid: d4d456347abbb904096f00c85b373375,
+        type: 3}
+      propertyPath: nextClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 905d0d312d48d405dbf0e3e79ff5d43f, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d4d456347abbb904096f00c85b373375, type: 3}
 --- !u!1001 &6089317292459684040
