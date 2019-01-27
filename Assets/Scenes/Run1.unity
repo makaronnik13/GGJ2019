@@ -11263,8 +11263,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SceneName: BugHouse
-  Title: Work hard
-  nextClip: {fileID: 8300000, guid: cb8e8159cc8e78345bb447d4cfe825f0, type: 3}
+  Title: connection
+  nextClip: {fileID: 8300000, guid: d07f699cdf7dd4415b090693c6c75ec1, type: 3}
+  onEnter:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!58 &961822076
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -29491,7 +29496,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1475982189}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -25.899996, y: -6.7, z: -10}
+  m_LocalPosition: {x: -25.899998, y: -6.7, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 203155416}
@@ -33502,7 +33507,7 @@ PrefabInstance:
     - target: {fileID: 1857007298657260458, guid: c0e6a0c0bd8404f6da4652ca992dc82d,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -25.899996
+      value: -25.899998
       objectReference: {fileID: 0}
     - target: {fileID: 1857007298657260458, guid: c0e6a0c0bd8404f6da4652ca992dc82d,
         type: 3}

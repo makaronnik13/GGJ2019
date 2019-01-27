@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,9 +11,7 @@ public class InteractableItem : MonoBehaviour
 
 	void OnMouseDown()
 	{
-		OnActivate.Invoke();
-       // FireFlyClickController.Instance.Item = this;
-        //StartCoroutine(PingItem());
+        StartCoroutine(PingItem());
 	}
 
     private IEnumerator PingItem()
@@ -30,7 +28,6 @@ public class InteractableItem : MonoBehaviour
 
     public void Activate()
     {
-        Debug.Log("Activate");
         OnActivate.Invoke();
     }
 }
