@@ -3990,16 +3990,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 5932790413212218050, guid: 0365788fc72c943fab15a73617f496f9,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.04
-      objectReference: {fileID: 0}
-    - target: {fileID: 5932790413212218050, guid: 0365788fc72c943fab15a73617f496f9,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.02
-      objectReference: {fileID: 0}
     - target: {fileID: 4378771556372405203, guid: 0365788fc72c943fab15a73617f496f9,
         type: 3}
       propertyPath: m_Sprite
@@ -4010,6 +4000,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SortingOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5932790413212218050, guid: 0365788fc72c943fab15a73617f496f9,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.04
+      objectReference: {fileID: 0}
+    - target: {fileID: 5932790413212218050, guid: 0365788fc72c943fab15a73617f496f9,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.02
       objectReference: {fileID: 0}
     - target: {fileID: 8831796287576165475, guid: 0365788fc72c943fab15a73617f496f9,
         type: 3}
@@ -12384,7 +12384,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 46
   m_Sprite: {fileID: 21300000, guid: 5e042e3c91b494118a2f176bb276eaf5, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 0.9056604, g: 0.9056604, b: 0.9056604, a: 0}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -16758,7 +16758,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SceneName: Final
   Title: renewal
-  nextClip: {fileID: 8300000, guid: 0ba978f0e96e11a4a985c9f4ba2571ec, type: 3}
+  nextClip: {fileID: 8300000, guid: 590c9127f41fab14a89028b0ba4553c6, type: 3}
   onEnter:
     m_PersistentCalls:
       m_Calls:

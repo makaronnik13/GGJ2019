@@ -352,7 +352,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e2c1a35545eaac48802a713aea9999c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Title: Forgoten place
+  Title: Forgotten place
   Run1Clip: {fileID: 8300000, guid: a6f5c55b85e3c47f793253f076e15155, type: 3}
 --- !u!4 &1191335577
 Transform:

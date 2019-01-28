@@ -8,10 +8,18 @@ public class InteractableItem : MonoBehaviour
 {
 	public UnityEvent OnActivate;
     public Transform Visual;
+	public bool ping = true;
 
 	void OnMouseDown()
 	{
-        StartCoroutine(PingItem());
+		if (ping)
+		{
+			StartCoroutine(PingItem());
+		}
+		else
+		{
+			Activate();
+		}
 	}
 
     private IEnumerator PingItem()
